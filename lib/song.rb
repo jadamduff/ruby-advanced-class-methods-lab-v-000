@@ -38,7 +38,7 @@ class Song
   end
 
   def self.new_from_filename(filename)
-    filename = filename.split(/-|./)
+    filename = filename.split(/[-\.]/)
     filename.pop
     filename[0].pop
     filename[1].shift
