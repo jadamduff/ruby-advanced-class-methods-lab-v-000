@@ -44,7 +44,7 @@ class Song
     name = filename.last.strip
     song = self.new
     song.name = name
-    song.artist = artist
+    song.artist_name = artist
     song
   end
 
