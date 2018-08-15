@@ -37,14 +37,17 @@ class Song
     self.all.sort {|a, b| a.name <=> b.name}
   end
 
-  def self.new_from_filename(filename)
+  def self.normalize_filename(filename)
     filename = filename.split(/[-\.]/)
     filename.pop
-    artist = filename.first.strip
-    name = filename.last.strip
+    {:name => filename.last.strip, :artist => filename.first.strip}
+  end
+
+  def self.new_from_filename(filename)
+    filename = self.normalize_filename(filename)
     song = self.new
-    song.name = name
-    song.artist_name = artist
+    song.name = filename[:name]
+    song.artist_name = filename[:artist]
     song
   end
 
