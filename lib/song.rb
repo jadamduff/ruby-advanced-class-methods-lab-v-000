@@ -51,6 +51,15 @@ class Song
     song
   end
 
+  def self.create_from_filename(filename)
+    filename = self.normalize_filename(filename)
+    song = self.new
+    song.name = filename[:name]
+    song.artist_name = filename[:artist]
+    song.save
+    song
+  end
+
   def self.all
     @@all
   end
