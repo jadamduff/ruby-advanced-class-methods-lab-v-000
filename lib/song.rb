@@ -38,6 +38,8 @@ class Song
   end
 
   def self.new_from_filename(filename)
+    filename = filename.split(/\-|./)
+    filename[0].delete_at[(filename[0].length) - 1]
 
   end
 
