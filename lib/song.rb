@@ -39,8 +39,15 @@ class Song
 
   def self.new_from_filename(filename)
     filename = filename.split(/\-|./)
-    filename[0].delete_at[(filename[0].length) - 1]
-
+    filename.pop
+    filename[0].pop
+    filename[1].shift
+    artist = filename.first
+    name = filename.last
+    song = self.new
+    song.name = name
+    song.artist = artist
+    song
   end
 
   def self.all
